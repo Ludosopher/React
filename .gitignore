@@ -25,3 +25,4 @@ yarn-error.log*
 /src/*.svg
 /public/*.png
 /package-lock.json
+/README.md

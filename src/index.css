@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
-h1 {
+#author {
+  font-weight: bold;
+}
+
+#answer {
+  font-weight: bold;
   color: red
 }

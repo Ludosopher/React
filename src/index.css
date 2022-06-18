@@ -25,10 +25,48 @@ code {
   display: flex;
 }
 
-#chuts {
-  margin-right: 20px;
+#chats {
+  margin-left: 50px;
+}
+
+.chat {
+  margin-left: 50px;
 }
 
 h3 {
-  text-align: center;
+  text-align: left;
+}
+
+.active {
+  color: red;
+  text-decoration: none;
+}
+
+.passive {
+  color: white;
+  text-decoration: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.menuItem {
+  margin-left: 50px;
+  width: 100px;
+}
+
+.menuLink {
+  text-decoration: none;
+}
+
+.chatLink {
+  text-decoration: none;
+}
+
+.chatName {
+  margin-bottom: 20px;
+  font-size: 20px;
 }

@@ -1,26 +1,19 @@
 import './App.css';
-import {Routes, Route} from 'react-router-dom';
-import HomePage from './HomePage';
-import BlogPage from './BlogPage';
-import AboutPage from './AboutPage';
-import Layout from './Layout';
-import NotFoundPage from './NotFoundPage';
-import BlogAboutPage from './BlogAboutPage';
+import {useSelector, useDispatch} from 'react-redux';
 
 
 function App() {
 
+  const count = useSelector(state => state.count);
+  const dispatch = useDispatch();
+
   return (
     
-    <Routes>
-      <Route path={'/'} element={<Layout />}>
-        <Route index element={<HomePage />}/>
-        <Route path={'/blog'} element={<BlogPage />}/>
-        <Route path={'/about'} element={<AboutPage />}/>
-        <Route path={'/blog/:id/:name'} element={<BlogAboutPage />}/>
-      </Route>
-      <Route path={'/*'} element={<NotFoundPage />}/>
-    </Routes>
+    <div>
+      {count}
+      <button onClick={() => dispatch({type: 'plus'})}>+</button>
+      <button onClick={() => dispatch({type: 'minus'})}>-</button>
+    </div>
     
   );
 }

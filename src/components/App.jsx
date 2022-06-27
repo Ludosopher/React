@@ -1,14 +1,14 @@
-import Cash from './Cash';
-import Customers from './Customers';
+import Chats from './Chats';
+import Messages from './Messages';
 
 function App() {
 
   
   return (
     
-    <div>
-      <Cash />
-      <Customers />
+    <div id="container">
+      <Chats />
+      <Messages />
     </div>
     
   );

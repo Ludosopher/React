@@ -1,10 +1,10 @@
 import { combineReducers, createStore } from "redux";
-import {cashReduser} from "./redusers/cashReduser";
-import {customersReduser} from "./redusers/customersReduser";
+import {messagesReduser} from "./redusers/messagesReduser/messagesReduser";
+import {chatsReduser} from "./redusers/chatsReduser/chatsReduser";
 
 const reduser = combineReducers({
-    cash: cashReduser,
-    customers: customersReduser
+    messages: messagesReduser,
+    chats: chatsReduser
 })
 
 export const store = createStore(reduser);

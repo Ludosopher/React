@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {Link} from 'react-router-dom';
 import { getChats } from '../redax/redusers/chatsReduser/chatsSelector';
 
 const Chats = () => {
@@ -29,7 +30,11 @@ const Chats = () => {
       <button onClick={addCustomer}>Добавить чат</button>
       {chats.map((chat) => (
         <div key = {chat.id}>
-            <b>{chat.name}</b>
+            <Link className='chatLink' key={chat.id} to={`/chats/${chat.id}/${chat.name}`}>
+              <div className='chatName'>
+                {chat.name}
+              </div>
+            </Link>
             <button onClick={() => deleteCustomer(chat.id)}>x</button>
         </div>
 

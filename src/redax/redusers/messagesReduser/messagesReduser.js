@@ -2,9 +2,9 @@ import {GET_MESSAGES, DELETE_MESSAGE, ADD_MESSAGE} from '../../actionTypes';
 
 const initialState = {
     messages: [
-        {id: 1, author: "Андрей", text: "Привет!"},
-        {id: 2, author: "Пётр", text: "Привет!"},
-        {id: 3, author: "Геннадий", text: "Привет!"},
+        {id: 1, chatId: 1, author: "Андрей", text: "Привет!"},
+        {id: 2, chatId: 2, author: "Пётр", text: "Привет!"},
+        {id: 3, chatId: 3, author: "Геннадий", text: "Привет!"},
     ]
 }
 

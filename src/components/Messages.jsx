@@ -8,7 +8,8 @@ const Messages = () => {
     const [text, setText] = useState('');
     const dispatch = useDispatch();
     const deleteMessage = (id) => {
-        dispatch({type: 'DELETE_MESSAGE', payload: id });
+        const cancel = () => dispatch({type: 'DELETE_MESSAGE', payload: id, meta:{delay: 3000} });
+        cancel();
     }
     const addMessage = () => {
         const obj = {

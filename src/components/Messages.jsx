@@ -1,9 +1,15 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {useParams} from 'react-router-dom';
 import { getMessages } from '../redax/redusers/messagesReduser/messagesSelector';
 
 const Messages = () => {
-    const messages = useSelector(getMessages);
+  const { id, name } = useParams();  
+  const messages = useSelector(getMessages);
+    const chatMessages = messages.filter((message) => {
+      if (!id) return null;
+      return Number(id) === message.chatId;
+    });
     const [author, setAuthor] = useState('');
     const [text, setText] = useState('');
     const dispatch = useDispatch();
@@ -29,7 +35,7 @@ const Messages = () => {
   return (
     
     <div>
-      <h3>Чат</h3>
+      <h3>{name}</h3>
       <div>
         Введите автора:
         <input value={author} onChange={handleChangeAuthor} type="text" />
@@ -39,7 +45,7 @@ const Messages = () => {
         <input value={text} onChange={handleChangeText} type="text" />
       </div>
       <button onClick={addMessage}>Добавить сообщение</button>
-      {messages.map((message) => (
+      {chatMessages.map((message) => (
         <div key = {message.id}>
             <b>{message.author}</b>: {message.text}
             <button onClick={() => deleteMessage(message.id)}>x</button>

@@ -1,16 +1,19 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import {messagesReduser} from "./redusers/messagesReduser/messagesReduser";
 import {chatsReduser} from "./redusers/chatsReduser/chatsReduser";
+import logger from 'redux-logger';
 
-const logger = (store) => (next) => (action) => {
-    console.log('dispathing', action);
-    console.log('before', store.getState());
+// const logger = (store) => (next) => (action) => {
+//     console.log('dispathing', action);
+//     console.log('before', store.getState());
 
-    let result = next(action);
-    console.log('after', store.getState());
+//     let result = next(action);
+//     console.log('after', store.getState());
 
-    return result;
-}
+//     return result;
+// }
+
+
 
 const time = (store) => (next) => (action) => {
     const delay = action?.meta?.delay;

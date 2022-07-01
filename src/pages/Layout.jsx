@@ -8,7 +8,7 @@ const Layout = () => {
             <header className='header' style={{background: 'black'}}>
                 <div className='menuItem'><CastomLink to={'/'}>Home</CastomLink></div>
                 <div className='menuItem'><CastomLink to={'/chats'}>Chats</CastomLink></div>
-                <div className='menuItem'><CastomLink to={'/about'}>Profile</CastomLink></div>
+                <div className='menuItem'><CastomLink to={'/about'}>Gists</CastomLink></div>
             </header>
             <main>
                 <Outlet />

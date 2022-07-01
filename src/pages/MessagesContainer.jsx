@@ -1,11 +1,14 @@
+import React from 'react';
+import Messages from './Messages';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {useParams} from 'react-router-dom';
 import { getMessages } from '../redax/redusers/messagesReduser/messagesSelector';
 
-const Messages = () => {
-  const { id, name } = useParams();  
-  const messages = useSelector(getMessages);
+const MessagesContainer = () => {
+    
+    const { id, name } = useParams();  
+    const messages = useSelector(getMessages);
     const chatMessages = messages.filter((message) => {
       if (!id) return null;
       return Number(id) === message.chatId;
@@ -20,6 +23,7 @@ const Messages = () => {
     const addMessage = () => {
         const obj = {
             id: Math.random(),
+            chatId: Number(id),
             text: text,
             author: author
         }
@@ -31,30 +35,13 @@ const Messages = () => {
     const handleChangeText = (e) => {
         setText(e.target.value);
     }
-
-  return (
     
-    <div>
-      <h3>{name}</h3>
-      <div>
-        Введите автора:
-        <input value={author} onChange={handleChangeAuthor} type="text" />
-      </div>
-      <div>
-        Введите сообщение:
-        <input value={text} onChange={handleChangeText} type="text" />
-      </div>
-      <button onClick={addMessage}>Добавить сообщение</button>
-      {chatMessages.map((message) => (
-        <div key = {message.id}>
-            <b>{message.author}</b>: {message.text}
-            <button onClick={() => deleteMessage(message.id)}>x</button>
+    return (
+        <div>
+            <Messages name={name} author={author} text={text} handleChangeAuthor={handleChangeAuthor} handleChangeText={handleChangeText} addMessage={addMessage} deleteMessage={deleteMessage} chatMessages={chatMessages} />
         </div>
 
-      ))}
-    </div>
-    
-  );
+    );
 }
 
-export default Messages;
+export default MessagesContainer;

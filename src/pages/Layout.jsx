@@ -6,9 +6,9 @@ const Layout = () => {
     return (
         <>
             <header className='header' style={{background: 'black'}}>
-                <div className='menuItem'><CastomLink to={'/'}>Home</CastomLink></div>
-                <div className='menuItem'><CastomLink to={'/chats'}>Chats</CastomLink></div>
-                <div className='menuItem'><CastomLink to={'/about'}>Gists</CastomLink></div>
+                <div className='menuItem'><CastomLink to={'/layout'}>Home</CastomLink></div>
+                <div className='menuItem'><CastomLink to={'/layout/chats'}>Chats</CastomLink></div>
+                <div className='menuItem'><CastomLink to={'/layout/about'}>Gists</CastomLink></div>
             </header>
             <main>
                 <Outlet />

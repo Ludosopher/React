@@ -15,13 +15,13 @@ function App() {
   return (
     
     <Routes>
-      <Route path={'/'} element={<Layout />}>
-        <Route index element={<RegisterPage />}/>
-        <Route path={'/home'} element={<HomePage />}/>
-        <Route path={'/login'} element={<LoginPage />}/>
-        <Route path={'/chats'} element={<Chats />}/>
-        <Route path={'/about'} element={<AboutPage />}/>
-        <Route path={'/chats/:id/:name'} element={<MessagesContainer />}/>
+      <Route path={'/'} element={<LoginPage />}/>
+      <Route path={'/register'} element={<RegisterPage />}/>
+      <Route path={'/layout'} element={<Layout />}>
+        <Route index element={<HomePage />}/>
+        <Route path={'/layout/chats'} element={<Chats />}/>
+        <Route path={'/layout/about'} element={<AboutPage />}/>
+        <Route path={'/layout/chats/:id/:name'} element={<MessagesContainer />}/>
       </Route>
       <Route path={'/*'} element={<NotFoundPage />}/>
     </Routes>

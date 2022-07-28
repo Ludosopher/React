@@ -29,3 +29,17 @@ export const registerError = (err) => ({
     type: types.REGISTER_ERROR,
     payload: err.toString()
 })
+
+export const loginStart = () => ({
+    type: types.LOGIN_START
+})
+
+export const loginSaccess = (user) => ({
+    type: types.LOGIN_SUCCESS,
+    payload: user
+})
+
+export const loginError = (err) => ({
+    type: types.LOGIN_ERROR,
+    payload: err.toString()
+})

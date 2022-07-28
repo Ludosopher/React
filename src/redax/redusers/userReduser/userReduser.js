@@ -1,5 +1,5 @@
 import { auth } from '../../../firebase';
-import { registerError, registerSaccess, registerStart } from '../../actions';
+import { registerError, registerSaccess, registerStart, loginError, loginSaccess, loginStart } from '../../actions';
 import * as types from '../../actionTypes';
 
 const initialState = {
@@ -11,17 +11,20 @@ const initialState = {
 export const userReduser = (state = initialState, action) => {
     switch (action.type) {
         case types.REGISTER_START:
+        case types.LOGIN_START:
             return {
                 ...state,
                 loading: true
             }
         case types.REGISTER_SUCCESS:
+        case types.LOGIN_SUCCESS:
             return {
                 ...state,
                 currentUser: action.payload,
                 loading: false
             }
         case types.REGISTER_ERROR:
+        case types.LOGIN_ERROR:
             return {
                 ...state,
                 error: action.payload,
@@ -42,6 +45,18 @@ export const registerInitiate = (email, password, displayName) => {
                     displayName
                 })
                 dispatch(registerSaccess(user))
+            })
+            .catch((err) => dispatch(registerError(err)))
+    }
+}
+
+export const loginInitiate = (email, password) => {
+    return(dispatch) => {
+        dispatch(loginStart())
+        auth
+            .signInWithEmailAndPassword(email, password)
+            .then(({user}) => {
+                dispatch(loginSaccess(user))
             })
             .catch((err) => dispatch(registerError(err)))
     }

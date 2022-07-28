@@ -31,11 +31,15 @@ const RegisterPage = () => {
         <div>
             <h2>REGISTER</h2>
             <form onSubmit={handleSubmit}>
+                <label>Enter name: </label>
                 <input value={displayName} type="text" onChange={(e) => setDisplayName(e.target.value)}></input>
+                <br></br><label>Enter email: </label>
                 <input value={email} type="email" onChange={(e) => setEmail(e.target.value)}></input>
+                <br></br><label>Enter password: </label>
                 <input value={password} type="text" onChange={(e) => setPassword(e.target.value)}></input>
+                <br></br><label>Enter confirm password: </label>
                 <input value={confirmPassword} type="text" onChange={(e) => setConfirmPassword(e.target.value)}></input>
-                <button type="submit">SIGN IN</button>
+                <br></br><button type="submit">SIGN IN</button>
             </form>
         </div>
     );

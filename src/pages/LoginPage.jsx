@@ -29,9 +29,11 @@ const LoginPage = () => {
         <div>
             <h2>LOGIN</h2>
             <form onSubmit={handleSubmit}>
+                <label>Enter email: </label>
                 <input value={email} type="email" onChange={(e) => setEmail(e.target.value)}></input>
+                <br></br><label>Enter password: </label>
                 <input value={password} type="text" onChange={(e) => setPassword(e.target.value)}></input>
-                <button type="submit">LOG IN</button>
+                <br></br><button type="submit">LOG IN</button>
             </form>
             <h2><a href="http://localhost:3000/register">REGISTRATION</a></h2>
         </div>

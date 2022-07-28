@@ -1,5 +1,5 @@
 import { auth } from '../../../firebase';
-import { registerError, registerSaccess, registerStart, loginError, loginSaccess, loginStart } from '../../actions';
+import { registerError, registerSaccess, registerStart, loginError, loginSaccess, loginStart, logoutError, logoutSaccess, logoutStart } from '../../actions';
 import * as types from '../../actionTypes';
 
 const initialState = {
@@ -12,6 +12,7 @@ export const userReduser = (state = initialState, action) => {
     switch (action.type) {
         case types.REGISTER_START:
         case types.LOGIN_START:
+        case types.LOGOUT_START:
             return {
                 ...state,
                 loading: true
@@ -23,8 +24,15 @@ export const userReduser = (state = initialState, action) => {
                 currentUser: action.payload,
                 loading: false
             }
+        case types.LOGOUT_SUCCESS:
+            return {
+                ...state,
+                currentUser: null,
+                loading: false
+            }
         case types.REGISTER_ERROR:
         case types.LOGIN_ERROR:
+        case types.LOGOUT_ERROR:
             return {
                 ...state,
                 error: action.payload,
@@ -58,6 +66,16 @@ export const loginInitiate = (email, password) => {
             .then(({user}) => {
                 dispatch(loginSaccess(user))
             })
-            .catch((err) => dispatch(registerError(err)))
+            .catch((err) => dispatch(loginError(err)))
+    }
+}
+
+export const logoutInitiate = () => {
+    return(dispatch) => {
+        dispatch(logoutStart())
+        auth
+            .signOut()
+            .then((resp) => dispatch(logoutSaccess()))
+            .catch((err) => dispatch(logoutError(err)))
     }
 }

@@ -43,3 +43,15 @@ export const loginError = (err) => ({
     type: types.LOGIN_ERROR,
     payload: err.toString()
 })
+
+export const logoutStart = () => ({
+    type: types.LOGOUT_START
+})
+
+export const logoutSaccess = () => ({
+    type: types.LOGOUT_SUCCESS
+})
+
+export const logoutError = (err) => ({
+    type: types.LOGOUT_ERROR
+})

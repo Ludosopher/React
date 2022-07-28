@@ -15,7 +15,7 @@ const LoginPage = () => {
         if (user) {
             navigate('/layout');
         }
-    })
+    }, [user, navigate])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -29,7 +29,7 @@ const LoginPage = () => {
         <div>
             <h2>LOGIN</h2>
             <form onSubmit={handleSubmit}>
-                <input value={email} type="textEmailAddress" onChange={(e) => setEmail(e.target.value)}></input>
+                <input value={email} type="email" onChange={(e) => setEmail(e.target.value)}></input>
                 <input value={password} type="text" onChange={(e) => setPassword(e.target.value)}></input>
                 <button type="submit">LOG IN</button>
             </form>

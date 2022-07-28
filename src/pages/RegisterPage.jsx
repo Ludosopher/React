@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { registerInitiate } from '../redax/redusers/userReduser/userReduser';
 import { userSelector } from '../redax/redusers/userReduser/userSelector';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const RegisterPage = () => {
     const [email, setEmail] = useState('');
@@ -9,7 +9,7 @@ const RegisterPage = () => {
     const [displayName, setDisplayName] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const dispatch = useDispatch();
-    const user = userSelector(userSelector);
+    const user = useSelector(userSelector);
 
     const handleSubmit = (e) => {
         e.preventDefault();

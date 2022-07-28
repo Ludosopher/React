@@ -1,3 +1,3 @@
-export const userSelector = state => state.currentUser;
-export const loadingSelector = state => state.loading;
-export const errorSelector = state => state.error;
+export const userSelector = state => state.user.currentUser;
+export const loadingSelector = state => state.user.loading;
+export const errorSelector = state => state.user.error;

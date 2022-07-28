@@ -10,7 +10,8 @@ import thunk from 'redux-thunk';
 const reduser = combineReducers({
     messages: messagesReduser,
     chats: chatsReduser,
-    todos: todosReduser
+    todos: todosReduser,
+    user: userReduser
 })
 
-export const store = createStore(reduser, userReduser, applyMiddleware(thunk, logger));
+export const store = createStore(reduser, applyMiddleware(thunk, logger));

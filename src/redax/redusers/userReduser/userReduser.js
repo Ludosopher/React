@@ -8,7 +8,7 @@ const initialState = {
     currentUser: null
 }
 
-export const userReduser = (state, action) => {
+export const userReduser = (state = initialState, action) => {
     switch (action.type) {
         case types.REGISTER_START:
             return {

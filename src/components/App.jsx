@@ -7,10 +7,8 @@ import NotFoundPage from '../pages/NotFoundPage';
 import RegisterPage from '../pages/RegisterPage';
 import LoginPage from '../pages/LoginPage';
 import MessagesContainer from '../pages/MessagesContainer';
-// <Route path={'/home'} element={<HomePage />}/>
 
 function App() {
-
   
   return (
     

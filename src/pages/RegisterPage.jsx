@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { registerInitiate } from '../redax/redusers/userReduser/userReduser';
 import { userSelector } from '../redax/redusers/userReduser/userSelector';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
     const [email, setEmail] = useState('');
@@ -10,6 +11,13 @@ const RegisterPage = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const dispatch = useDispatch();
     const user = useSelector(userSelector);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user) {
+            navigate('/');
+        }
+    })
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,7 +32,7 @@ const RegisterPage = () => {
             <h2>REGISTER</h2>
             <form onSubmit={handleSubmit}>
                 <input value={displayName} type="text" onChange={(e) => setDisplayName(e.target.value)}></input>
-                <input value={email} type="text" onChange={(e) => setEmail(e.target.value)}></input>
+                <input value={email} type="textEmailAddress" onChange={(e) => setEmail(e.target.value)}></input>
                 <input value={password} type="text" onChange={(e) => setPassword(e.target.value)}></input>
                 <input value={confirmPassword} type="text" onChange={(e) => setConfirmPassword(e.target.value)}></input>
                 <button type="submit">SIGN IN</button>

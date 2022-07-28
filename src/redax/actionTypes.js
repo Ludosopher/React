@@ -7,3 +7,6 @@ export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const GET_TODOS = 'GET_TODOS';
 export const LOADING_TODOS = 'LOADING_TODOS';
 export const ERROR_TODOS = 'ERROR_TODOS';
+export const REGISTER_START = 'REGISTER_START';
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const REGISTER_ERROR = 'REGISTER_ERROR';
